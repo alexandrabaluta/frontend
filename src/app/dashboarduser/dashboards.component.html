@@ -1,0 +1,18 @@
+<mat-toolbar color="warn">
+  <mat-toolbar-row class="example-spacer">
+    <span class="example-spacer"></span>
+    <h2 class="name">{{ userLoggedIn.role}}</h2>
+    <span class="example-spacer"></span>
+    <h2 class="profession">{{userLoggedIn.username}}</h2>
+    <img class="user" src="assets/profilepic.png" alt="">
+    <a mat-button class="logout" (click)="logout()">Logout</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="login-img" [ngStyle]="{backgroundImage:'url(./assets/background.jpg)'}">
+<br>
+  <div class="container">
+      <mat-card class="feature" routerLink="add-course">Add a parking</mat-card>
+      <mat-card class="feature" routerLink="see-grades">See your parkings</mat-card>
+  </div>
+</div>
+

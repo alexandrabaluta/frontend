@@ -1,0 +1,72 @@
+.logo-img {
+  width: 4%;
+  margin-left: 1px;
+
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+table {
+  width: 100%;
+
+  position: center;
+}
+
+h3 {
+  font-size: medium;
+  font-synthesis: weight;
+
+}
+
+p {
+  font-style: oblique;
+  font-size: medium;
+}
+
+.user {
+  max-width: 2%;
+  position: center;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.name {
+  position: center;
+}
+
+.container {
+  margin-top: 40px;
+}
+
+.feature {
+  padding: 2rem;
+  font-size: 20px;
+  user-select: none;
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  margin-top: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.top-mat-card {
+  margin-top: 80px;
+}
+
+.feature:hover {
+  -webkit-box-shadow: 5px 5px 35px -6px rgba(0, 0, 0, 0.6);
+  box-shadow: 5px 5px 35px -6px rgba(0, 0, 0, 0.6);
+  transform: scale(1.05);
+  transition: all 0.4s ease-out;
+}
+
+.login-img {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

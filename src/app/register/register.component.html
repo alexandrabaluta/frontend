@@ -1,0 +1,109 @@
+<mat-toolbar color=warn>
+  <mat-toolbar-row class="example-spacer">
+    FREE PARKING APP
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="img">
+  <div class="login-img" [ngStyle]="{backgroundImage:'url(./assets/background.jpg)'}">
+    <div class="main-div">
+      <mat-card>
+        <mat-card-title style="margin-bottom: 20px">Sign up</mat-card-title>
+        <mat-card-content class="text-center">
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <p>
+              <mat-form-field>
+                <label>
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="Username"
+                    formControlName="username"
+                    autocomplete="off"
+                    [(ngModel)]="username"
+                    name="username"
+                    required
+                  />
+                  <mat-error *ngIf="form.get('username').hasError('required')">
+                    <h7 style="color: red"> Username is <strong>required</strong></h7>
+                  </mat-error>
+                </label>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field>
+                <label>
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="Fullname"
+                    formControlName="fullname"
+                    autocomplete="off"
+                    [(ngModel)]="fullname"
+                    name="fullname"
+                  />
+                  <mat-error *ngIf="form.get('fullname').hasError('required')">
+                    <h7 style="color: red"> Full name is <strong>required</strong></h7>
+                  </mat-error>
+                </label>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field>
+                <label>
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="Registration Plate"
+                    formControlName="licenseplate"
+                    autocomplete="off"
+                    [(ngModel)]="licenseplate"
+                    name="licenseplate"
+                  />
+                </label>
+                <mat-error *ngIf="form.get('licenseplate').hasError('required')">
+                  <h7 style="color: red"> Plate is <strong>required</strong></h7>
+                </mat-error>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field>
+                <label>
+                  <input
+                    type="password"
+                    matInput
+                    placeholder="Password"
+                    formControlName="password"
+                    autocomplete="off"
+                    [(ngModel)]="password"
+                    name="password"
+                  />
+                </label>
+                <mat-error *ngIf="form.get('password').hasError('required')">
+                  <h7 style="color: red"> Password is <strong>required</strong></h7>
+                </mat-error>
+              </mat-form-field>
+            </p>
+            <mat-form-field appearance="fill" style="margin:10px; width: 300px">
+              <mat-label>I am a?</mat-label>
+              <mat-select [(ngModel)]="role" formControlName="role">
+                <mat-option value="ADMIN">Admin
+                </mat-option>
+                <mat-option value="USER">User
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <p *ngIf="error" class="error">
+              {{ error }}
+            </p>
+
+            <div class="button">
+              <button type="submit" mat-raised-button color="primary">Sign up</button>
+            </div>
+          </form>
+        </mat-card-content>
+        <a routerLink="/login">You already got an account? Sign in</a>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+<mat-toolbar color="warn">
+  <mat-toolbar-row class="example-spacer">
+    <span class="example-spacer"></span>
+    <h2 class="name">{{ userLoggedIn.role}}</h2>
+    <span class="example-spacer"></span>
+    <h2 class="profession">{{userLoggedIn.username}}</h2>
+    <img class="user" src="assets/profilepic.png" alt="">
+    <a mat-button class="logout" (click)="logout()">Logout</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="login-img" [ngStyle]="{backgroundImage:'url(./assets/background.jpg)'}">
+  <br><br>
+  <br>
+  <div class="mat-elevation-z0">
+    <table mat-table [dataSource]="dataSourceQuiz" matSort class="mat-elevation-z8">
+
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Username</th>
+        <td mat-cell *matCellDef="let user">
+          {{user.username}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fullname" fxFlex="40px">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Full name</th>
+        <td mat-cell *matCellDef="let user">
+          <mat-form-field floatLabel="never">
+            <input type="text" matInput placeholder="Full name" [value]="user.fullname"
+                   [(ngModel)]="user.fullname">
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="licenseplate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> License Plate</th>
+        <td mat-cell *matCellDef="let user">
+          <mat-form-field style="margin:5px">
+            <input type="text" matInput placeholder="Registration Plate" [value]="user.licenseplate"
+                   [(ngModel)]="user.licenseplate">
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+
+
+
+      <!-- Change Column -->
+      <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button (click)="editQuiz(element)">
+            <mat-icon color="accent">edit</mat-icon>
+            Update
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Delete Column -->
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button (click)="deleteUserForDialog(element)">
+            <mat-icon color="accent">delete</mat-icon>
+            Delete
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="questions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button [routerLink]="'add-questions/'+element.id">
+            <mat-icon color="accent">question_answer</mat-icon>
+            Questions
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsQuiz"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsQuiz;"></tr>
+    </table>
+</div>
+  <br>
+  <mat-card style="width: 500px">Right now there are {{nr}} parked cars.</mat-card><br> <br>
+  <mat-card style="width: 500px">
+    These are the parked cars:
+  <ul>
+    <li *ngFor="let car of parkedcars">{{ car.model }}</li>
+  </ul>
+  </mat-card>
+</div>
+
+
+

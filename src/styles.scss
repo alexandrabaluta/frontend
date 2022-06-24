@@ -1,0 +1,22 @@
+@import '~@angular/material/_theming.scss';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; /* You can add global styles to this file, and also import other style files */
+@include mat-core();
+$theming-material-components-primary: mat-palette($mat-light-blue, 100);
+$theming-material-components-accent: mat-palette($mat-light-blue, A100);
+$theming-material-components-warn: mat-palette($mat-gray);
+
+$theming-material-components-theme: mat-light-theme(
+    $theming-material-components-primary,
+    $theming-material-components-accent,
+    $theming-material-components-warn
+);
+@include angular-material-theme($theming-material-components-theme);
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+

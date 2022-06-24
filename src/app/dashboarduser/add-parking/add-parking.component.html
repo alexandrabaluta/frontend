@@ -1,0 +1,59 @@
+<mat-toolbar color="warn">
+  <mat-toolbar-row class="example-spacer">
+    <span class="example-spacer"></span>
+    <h2 class="name">{{ userLoggedIn.role}}</h2>
+    <span class="example-spacer"></span>
+    <h2 class="profession">{{userLoggedIn.username}}</h2>
+    <img class="user" src="assets/profilepic.png" alt="">
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="login-img" [ngStyle]="{backgroundImage:'url(./assets/background.jpg)'}">
+  <br>
+  <mat-card id="YourCourses">
+    <form type="submit" style="margin-top: 10px;">
+      <h4>Add a new parking</h4>
+      <p>
+        <mat-form-field appearance="fill">
+          <label>
+            <input
+              type="text"
+              matInput
+              placeholder="Zone 1 | Zone 2 | Zone 3)"
+              autocomplete="off"
+              [(ngModel)]="zone"
+              name="title"
+            />
+          </label>
+        </mat-form-field>
+      </p>
+      <br>
+      <mat-form-field appearance="fill">
+        <label>
+          <input
+            type="datetime-local"
+            matInput
+            placeholder="Date"
+            autocomplete="on"
+            [(ngModel)]="datep"
+            name="title"
+          />
+        </label>
+      </mat-form-field>
+<br> <br>
+      <mat-form-field appearance="fill">
+        <label>
+          <input
+            type="text"
+            matInput
+            placeholder="Duration"
+            autocomplete="off"
+            [(ngModel)]="durationp"
+            name="title"
+          />
+        </label>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" style="margin:5px;" (click)="addNewParking()">Submit</button>
+    </form>
+  </mat-card>
+</div>
